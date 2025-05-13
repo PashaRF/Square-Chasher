@@ -59,6 +59,8 @@ namespace Pong
             InitializeComponent();
             powerUp.X = randGen.Next(1, 600 - powerUp.Width);
             powerUp.Y = randGen.Next(1, 400 - powerUp.Height);
+            ball.X = randGen.Next(1, 600 - ball.Width);
+            ball.Y = randGen.Next(1, 400 - ball.Height);
         }
         
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -183,6 +185,7 @@ namespace Pong
             }
             else if (player2.IntersectsWith(ball))
             {
+                changeBallPosition();
                 player2Score++;
                 p2ScoreLabel.Text = $"{player2Score}";
             }
